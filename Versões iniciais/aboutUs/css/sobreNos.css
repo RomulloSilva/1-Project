@@ -1,0 +1,76 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+  
+    background-image: url("../Images/background.png");
+}
+#caixasobreNos{
+    background-color:rgb(74, 232, 232);
+    padding:30px;
+    height:450px;
+    margin-top:60px;
+    box-shadow: 1px 1px 5px;
+    color: rgb(74, 232, 232);
+    opacity: 80%;
+    font-size: 50px;
+    font-family:'Times New Roman', Times, serif;
+    color:white;
+    /*--------------------
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    font-size: 50px;
+    font-family:'Times New Roman', Times, serif;
+    color:white;
+    font-family:'Permanent marker', cursive; */
+   
+    
+}
+#testemunhos{
+    background-color:white;
+    box-shadow: 1px 1px 5px;
+    color: rgb(255, 255, 255);
+    opacity: 95%;
+    height:450px;
+    margin-top:60px;
+}
+.imgAutores{
+    display: block;
+    height:90px;
+    width: 90px;
+    border-radius: 60px;
+    margin-top: 15px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(215, 46, 221);
+    overflow: hidden;
+    width: 0;
+    height: 90px;
+    transition: .5s ease;
+    border-radius: 60px;
+}
+.container {
+    position: relative;
+    width: 50%;
+}
+#fernanda:hover .overlay {
+    width: 100%;
+  }
+#Guilherme:hover .overlay {
+    width: 100%;
+  }
+#gabi:hover .overlay {
+    width: 100%;
+  }
+#romulo:hover .overlay {
+    width: 100%;
+  }
+
