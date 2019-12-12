@@ -8,47 +8,50 @@ function validaNome(){
     if (nome == "") {/* Verifica se o input nome esta vazio*/
         alert('Preencha o campo com seu nome');
         formulario.nome.focus();
-        console.log("A var = "+);
+        console.log("A var = "+nome);
         return false;
         }
         if (sobrenome == "") {/* Verifica se o input sobrenome esta vazio*/
             alert('Preencha o campo com seu sobrenome');
             formulario.sobrenome.focus();
-            console.log("A var = "+);
+            console.log("A var = "+sobrenome);
             return false;
             }
         
         if (email == "") {/* Verifica se o input email esta vazio*/
         alert('Preencha o campo com seu email');
         formulario.email.focus();
-        console.log("A var = "+);
+        console.log("A var = "+email);
         return false;
         }
         
         if (telefone == "") {/* Verifica se o input telefone esta vazio*/
         alert('Preencha o campo com seu numero de telefone');
         formulario.telefone.focus();
-        console.log("A var = "+);
+        console.log("A var = "+telefone);
         return false;
         }
         if(telefone.length < 9){/* Verifica se o input telefone tem 9 caracteres*/
             alert('Somente numeros são aceitos');
         formulario.telefone.focus();
-        console.log("A var = "+);
+        console.log("A var = "+telefone.length);
         return false;
         }
         
         if (mensagem == "") {/* Verifica se o input mensagem esta vazio*/
         alert('Onde está sua mensagem?');
         formulario.mensagem.focus();
-        console.log("A var = "+);
+        console.log("A var = "+mensagem);
         return false;
         }
         if (mensagem.length < 5) {/* Verifica se o input mensagem é maior que 5*/
             alert('Mensagem muito curta');
             formulario.mensagem.focus();
-            console.log("A var = "+);
+            console.log("A var = "+mensagem.length);
             return false;
+            }
+            else{
+                alert("Mensagem enviada, obrigado");
             }  
 }
 /*
