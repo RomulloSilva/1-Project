@@ -1,0 +1,39 @@
+#menu {
+    position: static;
+    background-image: url("../../assets/imagens/menu background.png")
+}
+#msgErro {
+    font-size: 12px;
+    color: rgb(228, 102, 102);
+    border: 1px solid;
+    border-radius: 12px;
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+}
+
+#msgCorreta {
+    font-size: 12px;
+    color: rgb(99, 177, 118);
+    border: 1px solid;
+    border-radius: 12px;
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+}
+
+.nav-item {
+    font-family: 'Cuprum', sans-serif;
+    padding-top: 7px;
+    font-size: 16px;
+}
+
+#navEffect:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}

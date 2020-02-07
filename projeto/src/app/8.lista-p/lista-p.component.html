@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 mt-3 mb-2">
+            <div class="justify-content-center h-100">
+                    <div class="input-group mb-3">
+                        <input [(ngModel)]="idProj" type="text" class="form-control" placeholder="Pesquise projetos pelo id" aria-label="Pesquise projetos pelo id" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-info" (click)="pesquisar()" type="button" id="button-addon2">
+                                <img src="../../assets/imagens/search.png" class="search" alt="">
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---Conteúdo pesquisado-->
+<div class="row center" *ngIf="projeto != null">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div id="pesquisado" class="card mx-3 mb-3 mt-3 offset-s2" style="width: 50rem;">
+                <div class="card produtoPesquisado">
+                    <div class="card-img-block">
+                        <img class="card-img-top" src='{{projeto.linkFoto}}' alt="Imagem de capa do card">
+                    </div>
+                    <div class="card-body pt-0">
+                        <h5 class="card-title">{{projeto.nomeProj}}</h5>
+                        <p class="card-text">Meta: {{projeto.valorProj}}</p>
+                        <a [routerLink]="['/paginaDoacao', projeto.idProj]" class="btn btn-primary">Saiba ++</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+</div>
+<!--lista de produtos-->
+<div *ngIf='produto == null'>
+
+    <div class="row d-flex justify-content-center">
+
+        <div *ngFor="let prod of post">
+            <div class="card mx-3 mb-3 mt-3" style="width: 18rem;">
+                <div class="card listaProduto">
+                    <div class="card-img-block d-flex justify-content-center">
+                        <img class="card-img-top img-fluid" src='{{prod.linkFoto}}' alt="Imagem de capa do card">
+                    </div>
+                    <div class="card-body pt-0">
+                        <h5 class="card-title">{{prod.nomeProj}}</h5>
+                        <p class="card-text">Meta: {{prod.valorProj}}</p>
+                        <a [routerLink]="['/paginaDoacao', prod.idProj]"class="btn btn-primary">Saiba ++</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

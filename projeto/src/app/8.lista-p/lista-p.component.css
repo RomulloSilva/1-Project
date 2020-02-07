@@ -1,0 +1,117 @@
+/*Card que lista todas as Startup*/
+.listaProduto{
+    margin-top:20px;
+    overflow: hidden;
+}
+.listaProduto .btn{
+    border-radius:2px;
+    text-transform:uppercase;
+    font-size:12px;
+    padding:7px 20px;
+}
+.listaProduto .card-img-block {
+    width: 91%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+    
+}
+.listaProduto.card-img-block img{
+    border-radius:5px;
+    box-shadow:0 0 10px rgba(0,0,0,0.63);
+}
+.listaProduto h5{
+    color:#4E5E30;
+    font-weight:600;
+}
+.listaProduto p{
+    font-size:14px;
+    font-weight:300;
+}
+.listaProduto .btn-primary{
+    background-color:#4E5E30;
+    border-color:#4E5E30;
+}
+/*Card da Startup pesquisada*/
+
+.produtoPesquisado{
+    margin-top:20px;
+}
+.produtoPesquisado .btn{
+    border-radius:2px;
+    text-transform:uppercase;
+    font-size:12px;
+    padding:7px 20px;
+}
+.produtoPesquisado .card-img-block {
+    width: 91%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+    
+}
+.produtoPesquisado .card-img-block img{
+    border-radius:5px;
+    box-shadow:0 0 10px rgba(0,0,0,0.63);
+}
+.produtoPesquisado h5{
+    color:#4E5E30;
+    font-weight:600;
+}
+.produtoPesquisado p{
+    font-size:14px;
+    font-weight:300;
+}
+.produtoPesquisado .btn-primary{
+    background-color:#4E5E30;
+    border-color:#4E5E30;
+}
+
+/*Campo de busca*/
+
+
+    .searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+  
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+ 
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+
+

@@ -1,0 +1,374 @@
+<div class="container-fluid" id="menu" *ngIf='trocaMenu==0'>
+    <div class="row-md-12">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-transparent" id="navbar">
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <a class="navbar-brand" href="#">
+                            <img src="../../assets/imagens/logo.menu.png" width="115" height="40" alt="BelieveOn">
+                        </a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/formularioA'">Fale Conosco</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'listaP'">Vitrine</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/sobre'">Sobre nós</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/faq'">F.A.Q.</a>
+                    </li>
+                    <li *ngIf="estaLogado == true" class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/listagem'">Usuários</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ml-auto">
+                    <ul *ngIf="produto == null" class="nav nav-pills nav-fill">
+                        <li>
+                            <a class="nav-item nav-link text-secondary" data-toggle="modal"
+                                data-target="#modalCadastro">Cadastre-se</a>
+                        </li>
+                        <li>
+                            <button type="button" data-toggle="modal" data-target="#modalLogin"
+                                class="btn btn-outline-info">Entrar</button>
+                        </li>
+                    </ul>
+                </div>
+                <!--Código do login-->
+                <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="card-title text-center">Entrar</h5>
+                                <button id="fecharModal" type="button" class="close" data-dismiss="modal"
+                                    aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <!--formulario de login-->
+                            <div class="modal-body">
+                                <form class="form-signin">
+                                    <div class="form-label-group">
+                                        <label for="inputEmail">E-mail</label>
+                                        <input [(ngModel)]="inputEmail" [ngModelOptions]="{standalone: true}"
+                                            type="email" id="inputEmail" class="form-control" placeholder="" required
+                                            autofocus>
+                                    </div>
+                                    <div class="form-label-group mt-3">
+                                        <label for="inputPassword">Senha</label>
+                                        <input [(ngModel)]="inputPassword" [ngModelOptions]="{standalone: true}"
+                                            type="password" id="inputPassword" class="form-control" placeholder=""
+                                            required>
+                                    </div>
+                                    <div class="custom-control custom-checkbox mb-3 mt-3">
+                                    </div>
+                                    <!--Botão formulario de login-->
+                                    <div class="d-flex justify-content-between"><button (click)="efetuaLogin()"
+                                            class="btn btn-lg btn-primary btn-block text-uppercase"
+                                            type="submit">Investidor</button>
+                                        <button (click)="loginEmp()"
+                                            class="btn btn-lg btn-primary btn-block text-uppercase"
+                                            type="submit">Empreendedor</button></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="container register">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                                    role="tab" aria-controls="home" aria-selected="true">Quero Ser
+                                                    Empreendedor</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                                    role="tab" aria-controls="profile" aria-selected="false">Quero Ser
+                                                    Investidor</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <!---EMPREENDEDOR-->
+                                            <div class="tab-pane fade show active text-align form-new" id="home"
+                                                role="tabpanel" aria-labelledby="home-tab">
+                                                <h3 class="register-heading"></h3>
+                                                <div class="row register-form">
+                                                    <div class="col-md-12">
+                                                        <form class="needs-validation" novalidate>
+                                                            <div class="form-row">
+                                                                <div class="col-md-10 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input [(ngModel)]="empreendedor.nome"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="text" class="form-control"
+                                                                        placeholder="Nome completo:" value="" required>
+                                                                    <span id="msgErro"
+                                                                        *ngIf='msgNome'>{{msgNome}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-5 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input [(ngModel)]="empreendedor.email"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="text" class="form-control"
+                                                                        placeholder="E-mail:" value="" required>
+                                                                    <span id="msgErro"
+                                                                        *ngIf='msgEmail'>{{msgEmail}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                                <div class="col-md-5 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input [(ngModel)]="empreendedor.telefone"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="text" class="form-control"
+                                                                        placeholder="Telefone:" value="" required>
+                                                                    <span id="msgErro"
+                                                                        *ngIf='msgTelefone'>{{msgTelefone}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-5 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input (keyup)="forcaSenha()"
+                                                                        [(ngModel)]="empreendedor.senha"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="password" class="form-control"
+                                                                        id="validationTooltip01" placeholder="Senha:"
+                                                                        value="" required>
+                                                                    <span id={{idResposta}}
+                                                                        *ngIf='msgSenha1'>{{msgSenha1}}</span>
+                                                                    <!--msg de senha forte-->
+                                                                    <span id={{idResposta}}
+                                                                        *ngIf='msgSenha2'>{{msgSenha2}}</span>
+                                                                    <!--msg de senha fraca-->
+                                                                    <span id={{idResposta}}
+                                                                        *ngIf='msgSenha'>{{msgSenha}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                                <div class="col-md-5 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input [(ngModel)]="confirmaSenha"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="password" class="form-control"
+                                                                        placeholder="Confirme sua Senha:" value=""
+                                                                        required>
+                                                                    <span id="msgErro"
+                                                                        *ngIf='msgConfirmaSenha'>{{msgConfirmaSenha}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                            </div>
+                                                            <button (click)="validacao()" class="btn btn-primary mb-2"
+                                                                type="submit">Cadastrar</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!---Cadastro investidor-->
+                                            <div class="tab-pane fade show text-align form-new" id="profile"
+                                                role="tabpanel" aria-labelledby="profile-tab">
+                                                <h3 class="register-heading"></h3>
+                                                <div class="row register-form">
+                                                    <div class="col-md-12">
+                                                        <form class="needs-validation" novalidate>
+                                                            <div class="form-row">
+                                                                <div class="col-md-10 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input [(ngModel)]="nomeInvest"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="text" class="form-control"
+                                                                        placeholder="Nome completo:" value="" required>
+                                                                    <span id="msgErro"
+                                                                        *ngIf='msgNomeInvest'>{{msgNomeInvest}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-5 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input [(ngModel)]="emailInvest"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="text" class="form-control"
+                                                                        placeholder="E-mail:" value="" required>
+                                                                    <span id="msgErro"
+                                                                        *ngIf='msgEmailInvest'>{{msgEmailInvest}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                                <div class="col-md-5 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input [(ngModel)]="telefoneInvest"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="text" class="form-control"
+                                                                        placeholder="Telefone:" value="" required>
+                                                                    <span id="msgErro"
+                                                                        *ngIf='msgTelefoneInvest'>{{msgTelefoneInvest}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-5 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input (keyup)="forcaSenhaInvest()"
+                                                                        [(ngModel)]="senhaInvest"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="password" class="form-control"
+                                                                        placeholder="Senha:" value="" required>
+                                                                    <span id={{idResposta}}
+                                                                        *ngIf='msgSenhaInvest1'>{{msgSenhaInvest1}}</span>
+                                                                    <!--msg de senha forte-->
+                                                                    <span id={{idResposta}}
+                                                                        *ngIf='msgSenhaInvest2'>{{msgSenhaInvest2}}</span>
+                                                                    <!--msg de senha fraca-->
+                                                                    <span id={{idResposta}}
+                                                                        *ngIf='msgSenhaInvest'>{{msgSenhaInvest}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                                <div class="col-md-5 mb-3">
+                                                                    <label for="validationTooltip01"></label>
+                                                                    <input [(ngModel)]="confirmaSenhaInvest"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        type="password" class="form-control"
+                                                                        placeholder="Confirme sua Senha:" value=""
+                                                                        required>
+                                                                    <span id="msgErro"
+                                                                        *ngIf='msgConfirmaSenhaInvest'>{{msgConfirmaSenhaInvest}}</span>
+                                                                    <!--msg de erro-->
+                                                                </div>
+                                                            </div>
+                                                            <button (click)="validacaoInvestidor()"
+                                                                class="btn btn-primary mb-2"
+                                                                type="submit">Cadastrar</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid" id="menu" *ngIf='trocaMenu==1'>
+    <div class="row-md-12">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-transparent" id="navbar">
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <a class="navbar-brand" href="#">
+                            <img src="../../assets/imagens/logo.menu.png" width="115" height="40" alt="BelieveOn">
+                        </a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/formularioA'">Fale Conosco</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'listaP'">Vitrine</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/sobre'">Sobre nós</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/faq'">F.A.Q.</a>
+                    </li>
+                    <li *ngIf="estaLogado == true" class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/listagem'">Usuários</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Administrador
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" [routerLink]="'perfil'">Usuários</a>
+                          <a class="dropdown-item" [routerLink]="'listaP'">Projetos</a>
+                          
+                        </div>
+                      </li>
+                </ul>
+                <div class="navbar-nav ml-auto">
+                    <button type="button" class="btn btn-outline-info" (click)='logout()'>Logout</button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid" id="menu" *ngIf='trocaMenu==2'>
+    <div class="row-md-12">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-transparent" id="navbar">
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <a class="navbar-brand" href="#">
+                            <img src="../../assets/imagens/logo.menu.png" width="115" height="40" alt="BelieveOn">
+                        </a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/formularioA'">Fale Conosco</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'listaP'">Vitrine</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/sobre'">Sobre nós</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/faq'">F.A.Q.</a>
+                    </li>
+                    <li *ngIf="estaLogado == true" class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/listagem'">Usuários</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ml-auto">
+                    <button type="button" class="btn btn-outline-info" (click)='logout()'>Logout</button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid" id="menu" *ngIf='trocaMenu==3'>
+    <div class="row-md-12">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-transparent" id="navbar">
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <a class="navbar-brand" href="#">
+                            <img src="../../assets/imagens/logo.menu.png" width="115" height="40" alt="BelieveOn">
+                        </a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/formularioA'">Fale Conosco</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'listaP'">Vitrine</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/sobre'">Sobre nós</a>
+                    </li>
+                    <li class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/faq'">F.A.Q.</a>
+                    </li>
+                    <li *ngIf="estaLogado == true" class="nav-item active" id="navEffect">
+                        <a class="nav-link" [routerLink]="'/listagem'">Usuários</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ml-auto">
+                    <button type="button" class="btn btn-outline-info" (click)='logout()'>Logout</button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

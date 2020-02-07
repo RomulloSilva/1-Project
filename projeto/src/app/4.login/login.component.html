@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row d-flex justify-content-center mt-2 mb-2">
+        <div class="col-md-3">
+            <div class="caixaDoInvestidor">
+                <div class="card profile-card-3">
+                    <div class="background-block mx-auto">
+                        <img src="{{empreendedor.imgEmp}}" class="img-fluid"/>
+                    </div>
+                    <div class="card-content">
+                        <h2>{{empreendedor.nomeEmp}} <small>Investidor</small></h2>
+                        <small>Email:{{empreendedor.emailEmp}}</small><br>
+                        <small>Tel: {{empreendedor.telefoneEmp}}</small>
+                        <div class="align-content-center mt-2">
+                            <button type="button" class="btn btn-dark">Vitrine</button>
+                            <button type="button" class="btn btn-dark">Logout</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 bg-white">
+            <div>
+                <h2 clas="mx-auto">Projetos Doados por: {{empreendedor.nomeEmp}}</h2>
+            </div>
+            Aqui Estão seus projetos...
+
+            <div class="d-flex justify-content-center">
+                <div class="card mr-2" style="width: 18rem;" *ngFor="let item of empreendedor.projetos">
+                    <img class="card-img-top" src="{{item.linkFoto}}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{item.descricaoProj}}</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+ <div class ="col-md-4">
+    <form action="/action_page.php">
+        <div class="form-group">
+          <label for="id:">Id</label>
+          <input type="id"  [(ngModel)]="idAlimenta" [ngModelOptions]="{standalone: true}" class="form-control" id="id">
+        </div>
+        <div class="form-group">
+            <label for="imagem">Imagem</label>
+            <input type="imagem" [(ngModel)]="imagensAlimenta" [ngModelOptions]="{standalone: true}" class="form-control" id="imagem">
+          </div>
+          <div class="form-group">
+            <label for="Título">Título</label>
+            <input type="titulo" [(ngModel)]= "tituloAlimenta"[ngModelOptions]="{standalone: true}" class="form-control" id="titulo">
+          </div>
+          <div class="form-group">
+            <label for="descrição">Descrição</label>
+            <input type="descrição"  [(ngModel)]= "descricaoAlimenta"  [ngModelOptions]="{standalone: true}"class="form-control" id="descricao">
+          </div>
+          <div class="form-group">
+            <label for="meta">Meta</label>
+            <input type="meta"  [(ngModel)]="metaAlimenta" [ngModelOptions]="{standalone: true}" class="form-control" id="meta">
+          </div>
+        <div class="checkbox">
+          <label><input type="checkbox">Lembrar de mim</label>
+        </div>
+        <button type="submit" (click)="enviarProjeto()" class="btn btn-default">Cadastrar projeto</button>
+      </form>
+</div>

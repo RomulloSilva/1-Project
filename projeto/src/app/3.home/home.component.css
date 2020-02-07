@@ -1,0 +1,129 @@
+* {
+    margin: 0%;
+    padding: 0%
+}
+
+#carousel {
+    margin: 0px;
+    padding: 0px;
+}
+
+.carousel-caption {
+    background: rgb(0, 204, 246);
+    background: linear-gradient(90deg, rgba(0, 204, 246, 0) 5%, rgba(0, 162, 246, 0.21052170868347342) 14%, rgba(44, 42, 117, 1) 35%, rgba(44, 42, 117, 1) 65%, rgba(0, 162, 246, 0.2189250700280112) 86%, rgba(0, 212, 255, 0) 95%);
+}
+
+#welcomeSession {
+    background-image: url("../../assets/imagens/vector-blue-squares-abstract-background-geometric.jpg");
+    height: 580px;
+    font-family: 'Cuprum', sans-serif;
+    animation: fadeIn ease 0.5s;
+    -webkit-animation: fadeIn ease 0.5s;
+}
+
+#sessaoA {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    opacity: 100%;
+    padding-top: 40px;
+    height: 680px;
+}
+
+.card {
+    margin: 10px;
+    padding: 10px;
+}
+
+#sessaoB {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-image: url("../../assets/imagens/caixa1teste.jpg");
+    background-color: rgb(80, 74, 146);
+    height: 580px;
+    color: rgb(255, 255, 255);
+    opacity: 100%;
+}
+
+#sessaoB-in {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    height: 380px;
+    width: 900px;
+    box-shadow: 1px 1px 5px;
+    color: rgb(2, 2, 2);
+    opacity: 100%;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 25px;
+    ;
+}
+
+.btn {
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 7px 20px;
+}
+
+#bv1 {
+    display: flex;
+    padding-top: 180px;
+    padding-left: 150px;
+    justify-content: right;
+    align-items: center;
+    font-size: 38px;
+}
+
+#bv2 {
+    display: flex;
+    padding-top: 20px;
+    padding-left: 150px;
+    justify-content: right;
+    align-items: center;
+}
+
+.fade-in {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+}
+
+.fade-in2 {
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+}
+
+.fade-in3 {
+    animation: fadeIn ease 4s;
+    -webkit-animation: fadeIn ease 4s;
+}
+
+#logoMain {
+    padding-top: 180px;
+    padding-left: 250px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

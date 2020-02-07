@@ -1,0 +1,13 @@
+<div class="container" id="conteudo">
+    <div class="row">
+        <div class="col-md-12 d-block bg-white">
+
+            id: <input type="text" [(ngModel)]="idAlimenta" [ngModelOptions]="{standalone: true}"><br/> imagem: <input placeholder=" digite o link da img" type="text" [(ngModel)]="imagensAlimenta" [ngModelOptions]="{standalone: true}"><br/> Titulo: <input type="text" [(ngModel)]="tituloAlimenta" [ngModelOptions]="{standalone: true}"><br/> Descrição: <input type="text"
+                [(ngModel)]="descricaoAlimenta" [ngModelOptions]="{standalone: true}"><br/> Resumo: <input type="text" [(ngModel)]="resumoAlimenta"><br/> Meta: <input type="text" [(ngModel)]="metaAlimenta" [ngModelOptions]="{standalone: true}"><br/> Empreendedor: <input type="text" [(ngModel)]="empreendedorAlimenta" [ngModelOptions]="{standalone: true}"><br/> E-mail:
+            <input type="text" [(ngModel)]="emailAlimenta" [ngModelOptions]="{standalone: true}"><br/> Telefone: <input type="text" [(ngModel)]="telefoneAlimenta" [ngModelOptions]="{standalone: true}"><br/>
+
+            <button (click)="enviarAlteracoes()">Alterar</button>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container-fluid {
+    color: rgb(0, 0, 0);
+    padding: 40px;
+    background-color: rgb(255, 255, 255);
+    opacity: 100%;
+    height: 560px;
+    background-image: url(../../assets/imagens/testeForm.jpg);
+}
+
+.form-control {
+    background-color: rgb(235, 235, 235);
+    font-size: 14px;
+    height: 35px;
+
+}
+
+#texto1 {
+    margin-top: 8%;
+    font-family: 'Cuprum', sans-serif;
+}
+
+#texto2 {
+    font-family: 'Cuprum', sans-serif;
+    margin-top: 15%;
+}
+
+#teste {
+    padding-top: 30px;
+}
+
+#msgErro {
+    font-size: 12px;
+    color: rgb(228, 102, 102);
+    border: 1px solid;
+    border-radius: 12px;
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+}
+#mapa{
+    margin-top:8%;
+    margin-right:40%;
+    font-size:10px; 
+}

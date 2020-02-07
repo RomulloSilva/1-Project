@@ -1,0 +1,124 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form" id="teste">
+                            <div class="form-row">
+                    <div class="form-group col-md-8 ">
+                        <label for="form-control" id="nome1"></label>
+                        <input [(ngModel)]="nome" [ngModelOptions]="{standalone: true}" type="text" class="form-control"
+                            id="nome" placeholder={{_msgNome}}>
+                        
+                        <!--Mensagen de erro para nome vazio-->
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="form-control" id="sobrenome1"></label>
+                        <input [(ngModel)]="sobrenome" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="sobrenome" placeholder={{_msgSobrenome}}>
+                        
+                        <!--Mensagen de erro para nome vazio-->
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="exampleInputEmail1"></label>
+                        <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email"
+                            class="form-control" id="email1" placeholder={{_msgEmail}}>
+                        
+                        <!--Mensagen de erro para nome vazio-->
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="exampleInputEmail1"></label>
+                        <input [(ngModel)]="telefone" [ngModelOptions]="{standalone: true}" type="tel"
+                            class="form-control" id="telefone" placeholder={{_msgTelefone}} maxlength="15"
+                            (keyup)="formataTel()">
+                        
+                        <!--Mensagen de erro para nome vazio-->
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="inputCity"></label>
+                        <input [(ngModel)]="cidade" [ngModelOptions]="{standalone: true}" type="text"
+                            class="form-control" id="cidade1" placeholder={{_msgCidade}}>
+                        
+                        <!--Mensagen de erro para nome vazio-->
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="inputState"></label>
+                        <select [(ngModel)]="estado" id="inputState" class="form-control">
+                            <option selecter="true">Seu estado</option>
+                            <option>SP</option>
+                            <option>AC</option>
+                            <option>AL</option>
+                            <option>AP</option>
+                            <option>AM</option>
+                            <option>BA</option>
+                            <option>CE</option>
+                            <option>DF</option>
+                            <option>ES</option>
+                            <option>GO</option>
+                            <option>MA</option>
+                            <option>MT</option>
+                            <option>MS</option>
+                            <option>MG</option>
+                            <option>PA</option>
+                            <option>PB</option>
+                            <option>PR</option>
+                            <option>PI</option>
+                            <option>RJ</option>
+                            <option>RN</option>
+                            <option>RS</option>
+                            <option>RO</option>
+                            <option>RR</option>
+                            <option>SC</option>
+                            <option>SE</option>
+                            <option>TO</option>
+                        </select>
+                        <!--Mensagen de erro para nome vazio-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <label for="exampleFormControlTextarea1"></label>
+                        <textarea [(ngModel)]="msg" [ngModelOptions]="{standalone: true}" class="form-control"
+                            id="mensagem" rows="4" maxlength="1200" placeholder={{_msgTexto}}></textarea>
+                        
+                        <!--Mensagen de erro para nome vazio-->
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary mt-3" (click)="pesquisar();">Enviar</button>
+            </form>
+        </div>
+        <div class="col-md-6" id="faleConosco">
+            <div class="row" id="mapa">
+                <div class="info">
+                    <h5>São Paulo - SP</h5>
+                    <p>Avenida Gal. Ataliba Leonel, 245<br>
+                        Santana | 02033-000</p>
+                    <p>(11)99999-8888/(11)3254-4523</p><br>
+                </div>
+                <div class="card" id="card">
+                    <div class="card-body">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.7193802171487!2d-46.62662868554452!3d-23.506615065456767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef6283c6753e7%3A0xc96724dd19a6d04b!2sInstituto%20da%20Oportunidade%20Social!5e0!3m2!1spt-BR!2sbr!4v1576802176717!5m2!1spt-BR!2sbr"
+                            frameborder="0" style="border:0;"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3 id="texto1">Fale Conosco</h3>
+                <p id="texto2">Tem um Feedback para nós? <br> Diga como podemos ajudar!<br>Sua opinião é importante para
+                    nosso negócio.</p>
+            </div>
+        </div>
+    </div>
+
+</div>

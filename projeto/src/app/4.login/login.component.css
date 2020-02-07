@@ -1,0 +1,59 @@
+.background-block{
+
+  height:268px;
+  width: 50%
+
+}
+
+#teste{
+    max-height: 840px;
+}
+
+.btn{
+    background-color: #2F3840;
+    border-color: #4E5E30;
+    margin-left: 8px;
+}
+
+.imagemPefil {
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 5px;
+    width: 150px;
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+  /*------------------PERFIL--------------------------------------*/
+
+  .caixaDoInvestidor {
+    padding: 20px 0 10px 0;
+    background: #FFFFFF;
+ 
+  }
+
+ 
+  /*----------------------------Profile Card 3-------------------------------------------*/
+.profile-card-3 {
+    font-family: 'Open Sans', Arial, sans-serif;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    height:368px;
+    border:none;
+  }
+  
+  .profile-card-3 h2 {
+    margin: 0 0 5px;
+    font-weight: 600;
+    font-size:25px;
+  }
+  .profile-card-3 h2 small {
+    display: block;
+    font-size: 15px;
+    margin-top:10px;
+  }
+ 
+  
+  

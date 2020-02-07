@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <h3>Cadastro de Usuários</h3>
+    <div class="row" *ngFor='let USER of listaUser'>
+        <div class="col-md-11" id="usuario">
+            <!--Criando a alimentação no componente.-->
+            <img src="../../assets/imagens/default user.jfif" height="35px" width="35px">
+            <a > {{USER.nome}}</a>
+            <!--Criando o botão no nome dos usuários, para modificar os usuarios-->
+        </div>
+            <div class="col-md-1" id="editaIcone">
+                <a><img src="../../assets/imagens/tools.png" height="25px" width="25px" [routerLink]="['/editaUser', USER.idUsuario]"></a>
+            </div>
+        
+    </div>
+</div>
