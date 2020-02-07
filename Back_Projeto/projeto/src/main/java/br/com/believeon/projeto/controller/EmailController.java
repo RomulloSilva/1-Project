@@ -7,16 +7,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.believeon.projeto.email.EnviaEmailTLS;
-import br.com.believeon.projeto.email.Mensagem;
+import br.com.believeon.projeto.email.Email;
 
 @RestController
 @CrossOrigin("*")
 public class EmailController {
 	
-	@PostMapping("/email/enviar")
-	public ResponseEntity<String> enviaEmail(@RequestBody Mensagem msg){
-		if (EnviaEmailTLS.sendEmail( msg.getNome(),msg.getSobrenome(),msg.getFromEmail(), msg.getTelefone(), msg.getCidade(),msg.getEstado(), msg.getMensagem())) {
-			return ResponseEntity.ok("Enviado");
+	
+	@PostMapping("/formularioA/email")
+	public ResponseEntity<Email> enviaEmail(@RequestBody Email msg){
+		if (EnviaEmailTLS.sendEmail(msg)) {
+			return ResponseEntity.ok(msg);
 		}
 		return ResponseEntity.badRequest().build();
 	}

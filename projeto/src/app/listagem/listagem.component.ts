@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 //Importações do serviços e do objeto.
-import {ProdutosService} from'../serviço/produtos.service';
-import {Usuario} from '../model/Usuario';
+import {Investidor} from '../model/Investidor';
+import {InvestidorService} from '../serviço/investidor.service';
+
 
 @Component({
   selector: 'app-listagem',
@@ -11,19 +12,24 @@ import {Usuario} from '../model/Usuario';
 })
 export class ListagemComponent implements OnInit {
 
-  public listaUser: Usuario[]//buscar a lista de usuários atraves da classe criada.
+  public investidor: Investidor[];
 
-  constructor( private busca: ProdutosService) { }
+ 
+
+  constructor( private busca: InvestidorService) { }
 
   ngOnInit() {
-
-    //Invocar os serviços, ou seja as funções criadas no Produtos.service:
-    this.busca.recuperaTodos().subscribe((res:Usuario[])=>{
-      this.listaUser = res;
-    })
+         this.pegarInv();
+    
+    }
 
 
+
+       pegarInv(){
+        this.busca.recuperaTodos().subscribe((invest: Investidor[])=>{
+          this.investidor=invest;
+          console.log(this.investidor);
+        })
+      }
 
   }
-
-}

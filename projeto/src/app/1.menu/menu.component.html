@@ -4,7 +4,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
                 <ul class="navbar-nav mr-auto">
                     <li>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" [routerLink]="'/home'">
                             <img src="../../assets/imagens/logo.menu.png" width="115" height="40" alt="BelieveOn">
                         </a>
                     </li>
@@ -65,10 +65,10 @@
                                     </div>
                                     <!--Botão formulario de login-->
                                     <div class="d-flex justify-content-between"><button (click)="efetuaLogin()"
-                                            class="btn btn-lg btn-primary btn-block text-uppercase"
+                                            class="btn  btn-primary"
                                             type="submit">Investidor</button>
                                         <button (click)="loginEmp()"
-                                            class="btn btn-lg btn-primary btn-block text-uppercase"
+                                            class="btn  btn-primary"
                                             type="submit">Empreendedor</button></div>
                                 </form>
                             </div>
@@ -269,7 +269,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
                 <ul class="navbar-nav mr-auto">
                     <li>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" [routerLink]="'/home'">
                             <img src="../../assets/imagens/logo.menu.png" width="115" height="40" alt="BelieveOn">
                         </a>
                     </li>
@@ -293,13 +293,14 @@
                           Administrador
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" [routerLink]="'perfil'">Usuários</a>
-                          <a class="dropdown-item" [routerLink]="'listaP'">Projetos</a>
-                          
+                          <a class="dropdown-item" [routerLink]="'perfil'">Projetos</a>
+                          <a class="dropdown-item" [routerLink]="'cadastrarProjeto'">Projeto ++</a>
+                          <a class="dropdown-item" [routerLink]="'listagem'">Investidores</a>
+                          <a class="dropdown-item" [routerLink]="'editaUser'">Empreendedores</a>
                         </div>
                       </li>
                 </ul>
-                <div class="navbar-nav ml-auto">
+                <div class="navbar-nav ml-auto" >
                     <button type="button" class="btn btn-outline-info" (click)='logout()'>Logout</button>
                 </div>
             </div>
@@ -312,7 +313,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
                 <ul class="navbar-nav mr-auto">
                     <li>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" [routerLink]="'/home'">
                             <img src="../../assets/imagens/logo.menu.png" width="115" height="40" alt="BelieveOn">
                         </a>
                     </li>
@@ -333,6 +334,9 @@
                     </li>
                 </ul>
                 <div class="navbar-nav ml-auto">
+                        <a [routerLink]="'\login'" data-toggle="tooltip" data-placement="left" title="Meu Perfil">
+                                <img type="profile" src={{empreendedor.imgEmp}} id="perfilImg"  >
+                        </a>
                     <button type="button" class="btn btn-outline-info" (click)='logout()'>Logout</button>
                 </div>
             </div>
@@ -345,7 +349,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
                 <ul class="navbar-nav mr-auto">
                     <li>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" [routerLink]="'/home'">
                             <img src="../../assets/imagens/logo.menu.png" width="115" height="40" alt="BelieveOn">
                         </a>
                     </li>
@@ -366,6 +370,9 @@
                     </li>
                 </ul>
                 <div class="navbar-nav ml-auto">
+                        <a [routerLink]="'\loginInv'">
+                                <img class="img-fluid" src={{investidor.imgInv}} id="perfilImg" data-toggle="tooltip" data-placement="bottom" title="Meu Perfil" >
+                        </a>
                     <button type="button" class="btn btn-outline-info" (click)='logout()'>Logout</button>
                 </div>
             </div>

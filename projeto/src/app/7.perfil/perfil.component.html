@@ -1,4 +1,286 @@
-<div class="container-fluid">
+<!--barra de busca-->
+
+<div class="container-fluid bg-white" id="body">
+    <div class="container-fluid" id="imagebg">
+        <div class="row ">
+            <div class="col-md-11">
+                <form class="form-inline mt-4">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Buscar projeto" aria-label="Buscar"
+                        [(ngModel)]="pesquisa" [ngModelOptions]="{standalone: true}">
+                    <button class="btn btn-outline-info" (click)="pesquisar()">buscar</button>
+                </form>
+            </div>
+            <div class="col-md-1">
+                <div class="addButton mt-4" [routerLink]="'/cadastrarProjeto'">
+                    <img src="../../assets/imagens/add1.png" height="40px;" width="40px;" id="grayAdd"
+                        alt="Adicionar Projeto">
+                    <img src="../../assets/imagens/add2.png" height="40px;" width="40px;" id="blueAdd"
+                        alt="Adicionar Projeto" class="img-top">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--exibe o id pesquisado-->
+    <div *ngIf='pesquisa == null'>
+        <div class="row" *ngFor='let p of all'>
+            <div class="col-md-11 ">
+                <div class="container emp-profile border border-secondary">
+                    <div class="row " id="caixa">
+                        <div class="col-md-4">
+                            <div class="profile-img">
+                                <img src='{{p.linkFoto}}' alt="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-head">
+                                <h5>
+                                    {{p.nomeProj}}
+                                </h5>
+                                <h6>
+                                    {{p.nomeProj}}
+                                </h6>
+                                <p class="profile-rating">META: <span>R$ {{p.valorProj}}</span></p>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                            role="tab" aria-controls="home" aria-selected="true">Sobre</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="profile-work">
+                                <p>Na Web:</p>
+                                <a href="">Site</a><br>
+                                <a href="">Facebook</a><br>
+                                <a href="">Instagram</a><br>
+                                <p>Referências:</p><br>
+                                <a href="">Repostagem 1:</a><br />
+                                <a href="">Repotagem 2:</a><br />
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" 
+                                    aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Id:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>{{p.idProj}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="p.dono">
+                                        <div class="col-md-4">
+                                            <label>Empreendedor:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>{{p.dono.nomeEmp}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Email:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>{{p.dono.emailEmp}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Telefone:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>
+                                                {{p.dono.telefoneEmp}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Descrição:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>{{p.descricaoProj}}</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" *ngIf="p.apoiador">
+                                        <div class="col-md-4">
+                                            <label>Apoiador:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>
+                                                {{p.apoiador.nome}}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" *ngIf="!p.apoiador">
+                                        <div class="col-md-4">
+                                            <label>Projeto sem Apoiador.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a class="editButton mt-4" [routerLink]="['/editaProjeto', p.idProj]">
+                    <img src="../../assets/imagens/edit1.png" height="40px;" width="40px;" id="buttonAdd"
+                        alt="Adicionar Projeto">
+                    <img src="../../assets/imagens/edit2.png" height="40px;" width="40px;" id="buttonAdd"
+                        alt="Adicionar Projeto" class="img-top">
+                </a>
+            </div>
+        </div>
+
+        <!--
+            <div class="delButton mt-4" (click)="deletarProjeto()">
+                <img src="../../assets/imagens/delete1.png" height="40px;" width="40px;" id="buttonDel"
+                    alt="Adicionar Projeto">
+                <img src="../../assets/imagens/delete2.png" height="40px;" width="40px;" id="buttonDel"
+                    alt="Adicionar Projeto" class="img-top">
+            </div>-->
+
+    </div>
+
+
+    <!--exibe todos-->
+    <div *ngIf='projeto'>
+        <div class="row">
+            <div class="col-md-11 ">
+                <div class="container emp-profile border border-secondary">
+                    <div class="row" id="caixa">
+                        <div class="col-md-4">
+                            <div class="profile-img">
+                                <img src='{{projeto.linkFoto}}' alt="" />
+                                <div class="file btn btn-lg btn-primary">
+                                    {{projeto.nomeProj}}
+                                    <input type="file" name="file" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-head">
+                                <h5>
+                                    {{projeto.nomeProj}}
+                                </h5>
+                                <h6>
+                                    {{projeto.nomeProj}}
+                                </h6>
+                                <p class="profile-rating">META: <span>R$ {{projeto.valorProj}}</span></p>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                            role="tab" aria-controls="home" aria-selected="true">Sobre</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="profile-work">
+                                <p>Na Web:</p>
+                                <a href="">Site</a><br>
+                                <a href="">Facebook</a><br>
+                                <a href="">Instagram</a><br>
+                                <p>Referências:</p><br>
+                                <a href="">Repostagem 1:</a><br />
+                                <a href="">Repotagem 2:</a><br />
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Id:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>
+                                                {{projeto.idProj}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Empreendedor:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>
+                                                {{projeto.dono.nomeEmp}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Email:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>
+                                                {{projeto.dono.emailEmp}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Telefone:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>
+                                                {{projeto.dono.telefoneEmp}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Descrição:</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>
+                                                {{projeto.descricaoProj}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Apoiador:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>
+                                            {{projeto.apoiador.nome}}
+                                        </p>
+                                    </div>
+                                </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a class="editButton mt-4" [routerLink]="['/editaProjeto', projeto.idProj]">
+                    <img src="../../assets/imagens/edit1.png" height="40px;" width="40px;" id="buttonAdd"
+                        alt="Adicionar Projeto">
+                    <img src="../../assets/imagens/edit2.png" height="40px;" width="40px;" id="buttonAdd"
+                        alt="Adicionar Projeto" class="img-top">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="container-fluid">
     <div class="row">
         <div class="col-md-11">
             <form class="form-inline mt-4">
@@ -66,7 +348,7 @@
                                         <label>Id:</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <p>{{p.idProj}}</p>
+                                        <p>{{p.id}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -127,96 +409,100 @@
         </div>
     </div>
 </div>
-<!------Conteudo pesquisado-->
-<div *ngIf="projeto != null">
-    <div class="container emp-profile">
-        <div class="row"*ngFor='let p of all'>
-            <div class="col-md-4">
-                <div class="profile-img">
-                    <img src="" alt="" />
-                    <div class="file btn btn-lg btn-primary">{{p.nomeProj}}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="profile-head">
-                    <h5>
-                        {{p.nomeProj}}
-                    </h5>
-                    <h6>
-                        {{p.descricaoProj}}
-                    </h6>
-                    <p class="proile-rating">META: <span>R$ {{p.valorProj}}</span></p>
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <a [routerLink]="['/editaProjeto/', pesquisa]" type="submit" class="profile-edit-btn" name="btnAddMore">Editar Projeto:</a>
-                <a (click)="deletarProjeto()" type="submit" class="profile-edit-btn" name="btnAddMore"> Deletar Projeto </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-work">
-                    <p>Na Web:</p>
-                    <a href="">Site</a><br />
-                    <a href="">Facebook</a><br />
-                    <a href="">Instagram</a>
-                    <p>Referências:</p>
-                    <a href="">Reportagem 1:</a><br />
-                    <a href="">Reporagem 2:</a><br />
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Id:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p>{{p.idProj}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Empreendedor:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p>(p.dono.nomeEmp)</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Email:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p>(p.dono.emailEmp)</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Telefone:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p>(p.dono.telefoneEmp)</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Descrição:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p>{{p.descricaoProj}}</p>
-                            </div>
+----Conteudo pesquisado-
+    <div *ngIf='projeto != null'>
+        <div class="container emp-profile">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="" alt="" />
+                        <div class="file btn btn-lg btn-primary">{{projeto.titulo}}
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5>
+                            {{projeto.titulo}}
+                        </h5>
+                        <h6>
+                            {{projeto.resumo}}
+                        </h6>
+                        <p class="proile-rating">META: <span>R$ {{projeto.meta}}</span></p>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                    aria-controls="home" aria-selected="true">Sobre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a [routerLink]="['/editaProjeto/', pesquisa]" type="submit" class="profile-edit-btn"
+                        name="btnAddMore">Editar Projeto:</a>
+                    <a (click)="deletarProjeto()" type="submit" class="profile-edit-btn" name="btnAddMore"> Deletar
+                        Projeto
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>Na Web:</p>
+                        <a href="">Site</a><br />
+                        <a href="">Facebook</a><br />
+                        <a href="">Instagram</a>
+                        <p>Referências:</p>
+                        <a href="">Reportagem 1:</a><br />
+                        <a href="">Reporagem 2:</a><br />
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Id:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>{{projeto.id}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Empreendedor:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>(nome do responsável)</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Email:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>(email do responsável)</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Telefone:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>(telefone do responsável)</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Descrição:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>{{projeto.descricao}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </div>-->

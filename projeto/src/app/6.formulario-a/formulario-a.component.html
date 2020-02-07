@@ -1,60 +1,55 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-            <form class="form" id="teste">
-                            <div class="form-row">
+            <div class="form" id="teste">
+                <div class="form-row">
                     <div class="form-group col-md-8 ">
-                        <label for="form-control" id="nome1"></label>
-                        <input [(ngModel)]="nome" [ngModelOptions]="{standalone: true}" type="text" class="form-control"
-                            id="nome" placeholder={{_msgNome}}>
-                        
+                        <label for="form-control" id="msgErro">{{_msgNome}}</label>
+                        <input [(ngModel)]="nome" type="text" class="form-control" id="nome" placeholder="Nome:">
+
                         <!--Mensagen de erro para nome vazio-->
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for="form-control" id="sobrenome1"></label>
-                        <input [(ngModel)]="sobrenome" [ngModelOptions]="{standalone: true}" type="text"
-                            class="form-control" id="sobrenome" placeholder={{_msgSobrenome}}>
-                        
+                        <label for="form-control" id="msgErro">{{_msgSobrenome}}</label>
+                        <input [(ngModel)]="sobrenome" type="text" class="form-control" id="sobrenome"
+                            placeholder="Sobrenome:">
+
                         <!--Mensagen de erro para nome vazio-->
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for="exampleInputEmail1"></label>
-                        <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email"
-                            class="form-control" id="email1" placeholder={{_msgEmail}}>
-                        
+                        <label for="form-control" id="msgErro">{{_msgEmail}}</label>
+                        <input [(ngModel)]="fromEmail" type="text" class="form-control" id="fromEmail"
+                            placeholder="Seu e-mail:">
+
                         <!--Mensagen de erro para nome vazio-->
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for="exampleInputEmail1"></label>
-                        <input [(ngModel)]="telefone" [ngModelOptions]="{standalone: true}" type="tel"
-                            class="form-control" id="telefone" placeholder={{_msgTelefone}} maxlength="15"
-                            (keyup)="formataTel()">
-                        
+                        <label for="form-control" id="msgErro">{{_msgTelefone}}</label>
+                        <input [(ngModel)]="telefone" type="text" class="form-control"
+                            placeholder="Telefone:" maxlength="15" (keyup)="formataTel()">
+
                         <!--Mensagen de erro para nome vazio-->
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for="inputCity"></label>
-                        <input [(ngModel)]="cidade" [ngModelOptions]="{standalone: true}" type="text"
-                            class="form-control" id="cidade1" placeholder={{_msgCidade}}>
-                        
-                        <!--Mensagen de erro para nome vazio-->
+                        <label for="inputCity" id="msgErro">{{_msgCidade}}</label>
+                        <input [(ngModel)]="cidade" type="text" class="form-control" id="cidade1"
+                            placeholder="Sua cidade:">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-8">
-                        <label for="inputState"></label>
-                        <select [(ngModel)]="estado" id="inputState" class="form-control">
-                            <option selecter="true">Seu estado</option>
+                    <div class="col-md-8">
+                        <label  for="inputState" id="msgErro">{{_msgEstado}}</label>
+                        <select class="form-control" [(ngModel)]="estado" >
                             <option>SP</option>
                             <option>AC</option>
                             <option>AL</option>
@@ -82,20 +77,17 @@
                             <option>SE</option>
                             <option>TO</option>
                         </select>
-                        <!--Mensagen de erro para nome vazio-->
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-8">
-                        <label for="exampleFormControlTextarea1"></label>
-                        <textarea [(ngModel)]="msg" [ngModelOptions]="{standalone: true}" class="form-control"
-                            id="mensagem" rows="4" maxlength="1200" placeholder={{_msgTexto}}></textarea>
-                        
-                        <!--Mensagen de erro para nome vazio-->
+                        <label for="exampleFormControlTextarea1" id="msgErro">{{_msgTexto}}</label>
+                        <textarea [(ngModel)]="mensagem" class="form-control" id="mensagem" rows="4" maxlength="1200"
+                            placeholder="Qual a sua mensagem?"></textarea>
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary mt-3" (click)="pesquisar();">Enviar</button>
-            </form>
+            </div>
         </div>
         <div class="col-md-6" id="faleConosco">
             <div class="row" id="mapa">
@@ -120,5 +112,4 @@
             </div>
         </div>
     </div>
-
 </div>

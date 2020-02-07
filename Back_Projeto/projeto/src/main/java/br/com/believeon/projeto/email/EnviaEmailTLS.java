@@ -7,8 +7,13 @@ import java.util.Properties;
 
 public class EnviaEmailTLS {
 
-   public static boolean sendEmail(String nome,String sobrenome,String fromMail,String telefone,String cidade,String estado, String mensagem) {
-
+	public static boolean sendEmail(Email msg) {
+		 
+	 	Email t = new Email();
+	 	t = msg;
+	 	
+	 	System.out.println(t.getFromEmail());
+	 	
         final String username = "believeonadm@gmail.com";
         final String password = "gyqobkwfddvsergg";
 
@@ -27,15 +32,15 @@ public class EnviaEmailTLS {
 
         try {
 
-            Message message = new MimeMessage(session);
+        	Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("believeonadm@gmail.com"));
             message.setRecipients(
                     Message.RecipientType.TO,
                     InternetAddress.parse("believeonadm@gmail.com")
             );
-            message.setSubject(nome);
-            message.setText("Mensagem recebida de: "+fromMail+"\n"+mensagem);
-
+            message.setSubject("Fale conosco: " + t.getNome()+ " " + t.getSobrenome());
+            message.setText("Usuário: "+t.getNome()+ " "+ t.getSobrenome() +"\n" + "E-mail: " + t.getFromEmail()+ "\n"+"Telefone: " + t.getTelefone() +" \n"+"Mensagem: " + t.getMensagem());
+            
             Transport.send(message);
             return true;
 

@@ -18,10 +18,10 @@ export class PerfilComponent implements OnInit {
 
 
   constructor(private proj: ProjetosService, private rota: ActivatedRoute) { }
-  public idBusca: number;
-  public projeto: Projeto=null;
-  public all: Projeto[];
-  public pesquisa: number;
+  private pesquisa: number;
+  private idBusca: number;
+  private projeto: Projeto=null;
+  private all: Projeto[] = [];
   
 
   ngOnInit() {
@@ -38,18 +38,17 @@ export class PerfilComponent implements OnInit {
 
    
    
-   private pesquisar(){
-   
-    if( this.idBusca != null){
-      this.proj.listarProjetoId(this.idBusca).subscribe((res:Projeto)=>{
-        this.projeto = res;
-        this.pesquisa = null;
-      },(err)=>{
-        this.projeto = null;
-        alert("Projeto pesquisado não esta em nosso banco")
-      })
+  private pesquisar(){
+    if(this.pesquisa <= 0 || this.pesquisa == NaN){
+    alert("Item não encontrado");
+    this.pesquisa = null;
+      }else{
+        this.proj.listarProjetoId(this.pesquisa).subscribe((res: Projeto) =>{
+          this.projeto = res;
+          console.log(this.projeto);
+      }
+      )
     }
-    console.log(this.projeto);
   }
 
 }

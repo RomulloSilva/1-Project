@@ -1,28 +1,85 @@
- <div class ="col-md-4">
-    <form action="/action_page.php">
-        <div class="form-group">
-          <label for="id:">Id</label>
-          <input type="id"  [(ngModel)]="idAlimenta" [ngModelOptions]="{standalone: true}" class="form-control" id="id">
+<div class="container-fluid bg-white" id="body">
+    <div class="row">
+        <div class="col-md-11 ">
+            <div class="container emp-profile border border-secondary">
+                <div class="row" id="caixa">
+                    <div class="col-md-4">
+                        <p class="profile-rating">Imagem:
+                            <input type="titulo" [(ngModel)]= "linkFoto" class="form-control" id="imagem" placeholder="Link da imagem do projeto:">
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <p class="profile-rating">Projeto:
+                                <input type="titulo" [(ngModel)]= "nomeProj" class="form-control" id="titulo" placeholder="Qual o nome do projeto?">
+                            </p>
+                            <p class="profile-rating">Valor: <span>R$ <input type="valorProj"  [(ngModel)]= "valorProj" class="form-control" id="valor" placeholder="Qual o valor necessário para se tornar investidor?"></span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                        aria-controls="home" aria-selected="true">Sobre</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <p class="profile-rating">Categoria: <input type="categoria"  [(ngModel)]= "categoriaProjeto" class="form-control" id="categoria" placeholder="Qual a categoria do projeto?"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <p class="profile-rating">Empreendedor: <input type="dono"  [(ngModel)]= "idDono" class="form-control" id="empreendedor" placeholder="Código do Empreendedor."></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <p class="profile-rating">Descrição: <input type="descricaoProj"  [(ngModel)]= "descricaoProj" class="form-control" id="descricao" placeholder="Uma breve descrição sobre o projeto."></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-7">
+                                            <p class="profile-rating">Apoiador: <input type="apoiador"  [(ngModel)]= "apoiador" class="form-control" id="apoiador" placeholder="Código do apoiador."></p>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#Modal" (click)="confirmaDados();">
+                        Cadastrar
+                      </button>
+                      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="ModalLabel">Estamos quase lá...</h5>
+                              <button id="fecharModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              {{_mensagem}}
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                              <button type="button" class="btn btn-primary"  (click)="enviarProjeto();">Sim</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="imagem">Imagem</label>
-            <input type="imagem" [(ngModel)]="imagensAlimenta" [ngModelOptions]="{standalone: true}" class="form-control" id="imagem">
-          </div>
-          <div class="form-group">
-            <label for="Título">Título</label>
-            <input type="titulo" [(ngModel)]= "tituloAlimenta"[ngModelOptions]="{standalone: true}" class="form-control" id="titulo">
-          </div>
-          <div class="form-group">
-            <label for="descrição">Descrição</label>
-            <input type="descrição"  [(ngModel)]= "descricaoAlimenta"  [ngModelOptions]="{standalone: true}"class="form-control" id="descricao">
-          </div>
-          <div class="form-group">
-            <label for="meta">Meta</label>
-            <input type="meta"  [(ngModel)]="metaAlimenta" [ngModelOptions]="{standalone: true}" class="form-control" id="meta">
-          </div>
-        <div class="checkbox">
-          <label><input type="checkbox">Lembrar de mim</label>
-        </div>
-        <button type="submit" (click)="enviarProjeto()" class="btn btn-default">Cadastrar projeto</button>
-      </form>
-</div>
+      </div>

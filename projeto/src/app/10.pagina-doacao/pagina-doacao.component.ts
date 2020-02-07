@@ -8,7 +8,7 @@ import { Investidor } from '../model/Investidor';
 import { Categoria } from '../model/Categoria';
 import { CategoriaService } from '../serviço/categoria.service';
 import { InvestidorService } from '../serviço/investidor.service';
-import {Globals} from '../model/Globals';
+import { Globals } from '../model/Globals';
 
 @Component({
   selector: 'app-pagina-doacao',
@@ -37,12 +37,13 @@ export class PaginaDoacaoComponent implements OnInit {
       console.log(this.projeto);
     });
 
-    if (!Globals.INVESTIDOR){
+    if(!Globals.INVESTIDOR){
       this.invest.recuperarPorToken(localStorage.getItem("strInvTk")).subscribe((res:Investidor)=>{
         Globals.INVESTIDOR = res;
         this.investidor = res;
       });
     }
+
 
   }
 
@@ -65,12 +66,5 @@ export class PaginaDoacaoComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
+  
 }

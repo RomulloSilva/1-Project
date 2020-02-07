@@ -1,14 +1,11 @@
-<div class="container" id="conteudo">
-    <div class="row">
-        <div class="col-md-12 d-block bg-white">
-
-            Usuario: <input type="text" [(ngModel)]="projeto.nomeEmp"><br/>
-            Email: <input type="text" [(ngModel)]="projeto.emailEmp"><br/>
-            Telefone: <input type="text" [(ngModel)]="projeto.telefoneEmp"><br/>
-            Senha: <input type="text" [(ngModel)]="projeto.senhaEmp"><br/>
-
-            <button (click)="enviarAlteracoes();">Enviar alterações</button>
-
-        </div>
+<div class="container-fluid">
+    <h3>Lista de Empreendedores</h3>
+    <div class="row" *ngFor='let INV of empreendedor'>
+        <div class="col-md-11" id="usuario">
+            <!--Criando a alimentação no componente.-->
+            <img src={{INV.imgEmp}} height="35px" width="35px">
+            <a>{{INV.nomeEmp}}</a>
+            <!--Criando o botão no nome dos usuários, para modificar os usuarios-->
+        </div>   
     </div>
 </div>

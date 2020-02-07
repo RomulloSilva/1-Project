@@ -37,3 +37,11 @@
     -ms-transform: scale(1.2);
     transform: scale(1.2);
 }
+#perfilImg{
+    height:30px;
+    width:30px;
+    border-radius:60%;
+    margin-right:15px;
+    margin-top:5px;
+    
+}

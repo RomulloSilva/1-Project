@@ -21,7 +21,6 @@ import { EditaProjetoComponent } from './edita-projeto/edita-projeto.component';
 import { CadastrarProjetoComponent } from './cadastrar-projeto/cadastrar-projeto.component';
 import { LoginInvComponent } from './login-inv/login-inv.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

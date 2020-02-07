@@ -32,10 +32,6 @@ export class LoginInvComponent implements OnInit {
           console.log(res);
         })
       }
-
-
-
-
   }
 
 }

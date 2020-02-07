@@ -1,8 +1,7 @@
 <div class="conteiner d-flex justify-content-center titulo mb-2">
   <div class="row">
     <div class=" col-md-12">
-      <h1>Projeto:<div> {{ projeto.nomeProj }}</div>
-      </h1>
+      <h1>Projeto:{{projeto.nomeProj}}</h1>
       <small>Por: {{projeto.dono.nomeEmp}}</small>
     </div>
   </div>
@@ -25,9 +24,10 @@
         <div class="square-box">
           <div class="square-content">
             <div class="caixa1 mt-2 mr-2 ">
-              <h2 class="meta text-center">R$ {{ projeto.valorProj }}</h2>
+              <h2 class="meta text-center">R$ {{projeto.valorProj}}</h2>
               <br>
             </div>
+            
             <div *ngIf="projeto.apoiador">
               <button type="button" class="btn btn-success mb-2 mt-2 mx-auto">Apoiado</button>
             </div>
@@ -39,7 +39,7 @@
               <div class="card-header text-success">{{projeto.dono.nomeEmp}}</div>
               <div class="card-body text-success">
                 <h5 class="card-title">Descrição</h5>
-                <p class="card-text"> {{ projeto.descricaoProj }}</p>
+                <p class="card-text"> {{projeto.descricaoProj}}</p>
               </div>
               <div class="card-footer bg-transparent text-success">
                 <button type="button" class="btn btn-success" data-toggle="modal"
