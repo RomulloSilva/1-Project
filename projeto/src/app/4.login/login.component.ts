@@ -26,12 +26,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(localStorage.getItem("strInvTk"));
-    if (!localStorage.getItem("strInvTk")) {
+    console.log(localStorage.getItem("strEmpTk"));
+    if (!localStorage.getItem("strEmpTk")) {
       this.router.navigate(['/home']);
     } else {
        console.log("Recuperando dados do empreendedor");
-      this.emp.recuperarPorTokenEmp(localStorage.getItem("strInvTk")).subscribe((res: Empreendedor) => {
+      this.emp.recuperarPorTokenEmp(localStorage.getItem("strEmpTk")).subscribe((res: Empreendedor) => {
         console.log("recuperei o empreendedor")
         this.empreendedor = res;
         console.log(res);
